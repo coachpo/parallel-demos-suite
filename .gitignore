@@ -1,0 +1,65 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Build & CMake
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Testing/
+build/
+*.ninja
+*.cmake
+
+# IDEs & tools
+.idea/
+.vscode/
+
+# Objects & archives
+*.o
+*.obj
+*.d
+*.ko
+*.elf
+*.su
+*.idb
+*.pdb
+*.mod*
+*.cmd
+*.gch
+*.pch
+*.a
+*.la
+*.lo
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.ilk
+*.map
+*.exp
+*.dSYM/
+Module.symvers
+modules.order
+dkms.conf
+tmp_versions/
+
+# Executables
+*.exe
+*.out
+*.app
+*.hex
+*.x86_64
+*.i*86
+a.out
+
+# Logs & miscellany
+*.log
+*.swp
+*.tmp
+
+# Jekyll build output (for Resources/mpitutorial)
+_site/
+.jekyll-cache/
