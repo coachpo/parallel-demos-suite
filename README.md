@@ -2,6 +2,9 @@
 
 Consolidated collection of MPI and OpenMP teaching examples plus small projects (matrix multiplication, N‑body, ring, sieve). Everything now lives under `WorkSimultaneously` with supporting resources in `Resources`.
 
+## About
+Hands-on parallel programming sandbox: MPI point-to-point/collectives, OpenMP basics, and small demo projects in one place, with reference tutorial content bundled for offline study.
+
 ## Layout
 - `WorkSimultaneously/Examples/MPI` – small MPI programs with a Makefile.
 - `WorkSimultaneously/Examples/OpenMP` – OpenMP demos; `make` builds all targets.
