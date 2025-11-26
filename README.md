@@ -1,45 +1,58 @@
-# ParallelCode / WorkSimultaneously
+# Parallel Demos Suite
 
-Consolidated collection of MPI and OpenMP teaching examples plus small projects (matrix multiplication, N‑body, ring, sieve). Everything now lives under `WorkSimultaneously` with supporting resources in `Resources`.
+Hands-on sandbox for learning and teaching parallel programming. It bundles small, self-contained MPI and OpenMP examples plus a few demo projects (N-body, ring, matrix multiplication, sieve) and offline tutorial resources.
 
-## About
-Hands-on parallel programming sandbox: MPI point-to-point/collectives, OpenMP basics, and small demo projects in one place, with reference tutorial content bundled for offline study.
+## Highlights
+- MPI point-to-point and collective examples with ready Makefile.
+- OpenMP basics: threads, reductions, worksharing, matrix multiply.
+- Mini-projects: N-body variants, ring communication, sieve implementations.
+- Offline reference: `Resources/mpitutorial` and OpenMP PDFs.
 
-## Layout
-- `WorkSimultaneously/Examples/MPI` – small MPI programs with a Makefile.
-- `WorkSimultaneously/Examples/OpenMP` – OpenMP demos; `make` builds all targets.
-- `WorkSimultaneously/MatrixMultiplication` – Fox algorithm utilities and sample data (`M2000.dat`).
-- `WorkSimultaneously/NBody` – serial and parallel N-body variants.
-- `WorkSimultaneously/Ring` – ring communication examples (basic and extended).
-- `WorkSimultaneously/SeqSieve` – sequential and parallel sieve implementations.
-- `WorkSimultaneously/Resources` – reference PDFs and the `mpitutorial` site content.
+## Repository Structure
+- `WorkSimultaneously/Examples/MPI` – MPI samples (`make` builds all targets).
+- `WorkSimultaneously/Examples/OpenMP` – OpenMP demos (`make` builds all).
+- `WorkSimultaneously/NBody` – serial & parallel N-body versions.
+- `WorkSimultaneously/Ring` – ring communication examples.
+- `WorkSimultaneously/MatrixMultiplication` – Fox algorithm utilities and sample matrix file (`M2000.dat`).
+- `WorkSimultaneously/SeqSieve` – sequential and parallel sieve variants.
+- `WorkSimultaneously/Resources` – OpenMP PDFs and the mpitutorial site source.
 
 ## Prerequisites
-- MPI toolchain (`mpicc`, `mpirun`).
-- OpenMP-capable compiler (e.g., `gcc`/`clang` with `-fopenmp`).
-- Standard build tools (`make`).
+- MPI toolchain: `mpicc`, `mpirun` (e.g., MPICH or OpenMPI).
+- OpenMP-capable C compiler (`gcc`/`clang` with `-fopenmp`).
+- Standard build tools: `make`.
 
-## Building & Running
+## Quick Start
 ```bash
-# MPI examples
-cd WorkSimultaneously/Examples/MPI
-make            # builds all listed targets
-mpirun -np 4 ./hello
-
-# OpenMP examples
-cd WorkSimultaneously/Examples/OpenMP
-make            # builds all OpenMP demos
-./omp_hello
-
-# N-body variants
-cd WorkSimultaneously/NBody
-mpicc -O2 -o nbody Nbody.c              # serial
-mpicc -O2 -fopenmp -o nbody_par NbodyParallel.c  # example parallel build
+git clone git@github.com:coachpo/parallel-demos-suite.git
+cd parallel-demos-suite
 ```
 
-Clean builds with `make clean` where available. Executables are ignored via `.gitignore`.
+### Build MPI examples
+```bash
+cd WorkSimultaneously/Examples/MPI
+make          # builds all executables
+mpirun -np 4 ./hello
+```
 
-## Notes
-- Duplicated sample sets were merged into the `Examples` directories; old standalone folders were removed.
-- `Resources/mpitutorial` retains tutorial source markdown for reference; build output (e.g., `_site`) stays ignored.
-- If you add new examples, group them under `Examples/MPI` or `Examples/OpenMP` and extend the Makefiles accordingly.
+### Build OpenMP demos
+```bash
+cd WorkSimultaneously/Examples/OpenMP
+make          # builds all demos
+./omp_hello
+```
+
+### Other projects
+- N-body: `mpicc -O2 -fopenmp -o nbody_par WorkSimultaneously/NBody/NbodyParallel.c`
+- Ring: `mpicc -O2 -o ring WorkSimultaneously/Ring/Ring.c`
+- Sieve: build any of the `SeqSieve` sources with your compiler of choice.
+
+## Resources
+- `WorkSimultaneously/Resources/mpitutorial` contains the full markdown source of mpitutorial.com for offline reading. Build output (`_site`) is ignored by `.gitignore`.
+- OpenMP reference PDFs live in `WorkSimultaneously/Resources/OpenMP`.
+
+## Contributing
+Add new examples under `Examples/MPI` or `Examples/OpenMP` and extend the Makefiles. Keep samples minimal and well-commented so they remain teaching-friendly.
+
+## License
+See `WorkSimultaneously/LICENSE` for licensing details.
